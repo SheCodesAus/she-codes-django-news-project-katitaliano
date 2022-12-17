@@ -7,7 +7,7 @@
         <meta charset="utf-8">
         <title>She Codes News</title>
         <meta name="description" content="">
-        <meta name="author" content="Hayley van Waas">
+        <meta name="author" content="Katrina Italiano">
         <link href="https://fonts.googleapis.com/css?family=Manjari&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
             {% block stylesheets %}{% endblock %}
@@ -22,7 +22,19 @@
             </div>
             {% include './nav.html' %}
         </header>
-
         {% block content %}{% endblock %}
+        <footer>
+            <h3>View stories by author:</h3>
+            <div id="all-authors">
+                {% if story_authors %}
+                     {% for author in story_authors %}
+                         <a href=" {% url 'users:author_profile' author.id %}">{{ author }}</a>
+                         {% endfor %}
+                     {% else %}
+                         <h4>No authors are available.</h4>
+                 {% endif %}     
+             </div><br/>
+        </footer>
+        <br/>
     </body>
 </html>
