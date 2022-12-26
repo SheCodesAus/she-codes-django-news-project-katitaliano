@@ -1,3 +1,4 @@
+
 .story-card {
     margin: 2px;
     border: 1px solid #000;
@@ -47,13 +48,17 @@
 #story-card-2 .story-card-text h3,
 #story-card-3 .story-card-text h3,
 #story-card-4 .story-card-text h3 {
-    font-size: 16px;
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    text-align: justify;
 }
 
 #story-card-2 .story-card-text h4,
 #story-card-3 .story-card-text h4,
 #story-card-4 .story-card-text h4 {
-    font-size: 12px;
+    font-size: 1.2rem;
+    line-height: 1.4rem;
+    text-align: justify;
 }
 
 #story-card-2 img,
