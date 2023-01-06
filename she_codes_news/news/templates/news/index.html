@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block stylesheets %} 
-<link rel="stylesheet" type="text/css" href="{% static 'news/styles.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'news/styles_news.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -18,7 +18,21 @@
             <p>No stories are available.</p>
         {% endif %}
     </div>
+
+    <h2>View stories by author:</h2>
+
+    <div id="all-authors">
+        {% if story_authors %}
+            {% for author in story_authors %}
+                <a href=" {% url 'users:author_profile' author.id %}">{{ author }}</a>
+                {% endfor %}
+            {% else %}
+                <p>No authors are available.</p>
+        {% endif %}   
+    </div>
+
     <h2>All Stories</h2>
+
     <div id="all-stories">
         {% if latest_stories %}
             {% for story in all_stories %}
@@ -27,9 +41,12 @@
         {% else %}
             <p>No stories are available.</p>
         {% endif %}
-    </div>
+    </div>   
+   
 
 {% endblock %}
+
+
 
 {% comment %}    
     

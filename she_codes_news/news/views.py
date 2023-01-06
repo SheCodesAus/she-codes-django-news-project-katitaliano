@@ -1,8 +1,10 @@
-from django.views import generic
 from django.urls import reverse_lazy
-from .models import NewsStory
+from django.views import generic
+from .models import NewsStory, Category
 from users.models import CustomUser
 from .forms import StoryForm
+
+
 
 class IndexView(generic.ListView):
     template_name = 'news/index.html'
@@ -16,11 +18,8 @@ class IndexView(generic.ListView):
         context['latest_stories'] = NewsStory.objects.all()[:4]
         context['all_stories'] = NewsStory.objects.all()
         context['story_authors']= CustomUser.objects.all()
+        context['category']= Category.objects.all()
         return context
-
-# class Category(generic.DetailView):
-#     model = Category
-#     context_object_name: str
 
 class StoryView(generic.DetailView):
     model = NewsStory
@@ -36,3 +35,14 @@ class AddStoryView(generic.CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+
+class CategoryView(generic.DetailView):
+    model = NewsStory
+    template_name = 'news/story_category_detail.html'
+    context_object_name = 'category'
+    slug_field = 'name'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categories'] = NewsStory.objects.filter(category=self.kwargs['category'])
+        return context

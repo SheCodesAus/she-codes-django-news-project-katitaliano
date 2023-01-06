@@ -20,7 +20,7 @@ h1 {
     font-size: 2.5rem;
     line-height: 2.7rem;;
     color: darkslategray;
-    /* padding: 20px; */
+    padding: 20px;
     padding-top: 40px;
 }
 
@@ -31,16 +31,15 @@ h2 {
 }
 
 h3 {
-    font-size: 1.4rem;
-    line-height: 1.6rem;
-    color: darkslategray;
+    font-size: 1.5rem;
+    line-height: 1.7rem;
+    color: slategray;
     text-align: justify;
 }
 
 h4 {
-    font-size: 1.2rem;
-    line-height: 1.4rem;
-    font-style: italic;
+    font-size: 1.3rem;
+    line-height: 1.5rem;
     color: slategray;
     text-align: justify;
 }
@@ -48,7 +47,7 @@ h4 {
 p {
     font-size: 1rem;
     line-height: 1.2rem;
-    color: slategray;
+    color: darkslategray;
     text-align: justify;
 }
 
@@ -71,12 +70,12 @@ nav {
 a {
     margin: 2px;
     text-decoration: none;
-    font-size: 0.77rem;
-    line-height: 1rem;
+    font-size: 1rem;
+    line-height: 1.2rem;
     color: darkslategray;
-    text-align: center;
+    text-align: justify;
 }
 
-/* a, p {
-    font-family: monospace;
-} */
+a, p {
+    font-family: 'Montserrat', sans-serif;
+}

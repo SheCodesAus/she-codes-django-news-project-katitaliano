@@ -23,18 +23,6 @@
             {% include './nav.html' %}
         </header>
         {% block content %}{% endblock %}
-        <footer>
-            <h3>View stories by author:</h3>
-            <div id="all-authors">
-                {% if story_authors %}
-                     {% for author in story_authors %}
-                         <a href=" {% url 'users:author_profile' author.id %}">{{ author }}</a>
-                         {% endfor %}
-                     {% else %}
-                         <h4>No authors are available.</h4>
-                 {% endif %}     
-             </div><br/>
-        </footer>
         <br/>
     </body>
 </html>
